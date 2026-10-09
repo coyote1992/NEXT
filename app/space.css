@@ -1,0 +1,43 @@
+/* ==========================================================================
+   The site's side of the dot-space theme (base: kits/dot-space/theme/space.css).
+   Shapes stand in a viewport column; these rules keep the text out of that column
+   for as long as the shape stands there. Move content, never the dots.
+   ========================================================================== */
+
+html.space {
+  background: radial-gradient(120% 80% at 50% 0%, var(--space-sky-top) 0%, var(--space-sky-mid) 55%, var(--space-sky-bottom) 100%) fixed;
+}
+
+@media (min-width: 901px) {
+  /* racket: right column (x ≈ 83%) while the programme list and the ovi-suli section pass */
+  html.space .programs__col {
+    max-width: none;
+    margin-right: 30vw;
+  }
+  html.space .programs > .container {
+    max-width: none;
+    padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  }
+
+  /* court: left column (x ≈ 16.5%) while courts and booking pass */
+  html.space .courts > .container {
+    max-width: none;
+    padding-right: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  }
+  html.space .courts__col {
+    margin-left: 31vw;
+  }
+
+  /* 1992: right of the history heading (x ≈ 73%); the history column stays on the left */
+  html.space .history > .container {
+    max-width: none;
+    padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  }
+  html.space .history__col {
+    max-width: min(46vw, 640px);
+  }
+  /* breathing room above and below the heading, so the year forms in open sky */
+  html.space .history {
+    padding-top: clamp(140px, 18vh, 220px);
+  }
+}
